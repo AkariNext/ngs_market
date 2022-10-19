@@ -4,6 +4,7 @@ import { config } from '@ngs-market/config';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { ItemsModule } from './items/items.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { AppService } from './app.service';
       password: config.db.pass,
       database: config.db.db,
     }),
+    ItemsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
