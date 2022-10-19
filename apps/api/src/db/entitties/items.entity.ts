@@ -8,6 +8,6 @@ export class Items {
     @Column('text')
     name: string
 
-    @Column('number')
-    rarity
+    @Column('int')
+    rarity: number
 }
