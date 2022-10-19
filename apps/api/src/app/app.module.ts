@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { config } from '@ngs-market/config';
+import { entities } from '../db';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -15,6 +16,8 @@ import { ItemsModule } from './items/items.module';
       username: config.db.user,
       password: config.db.pass,
       database: config.db.db,
+      entities: entities,
+      synchronize: true
     }),
     ItemsModule,
   ],
