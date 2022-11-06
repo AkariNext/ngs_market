@@ -1,6 +1,11 @@
+main:
+  log-level: 'error'
 db:
   user: 'postgres'
   pass: 'postgrespw'
   host: 'localhost'
   port: 5432
   db: 'postgres'
+auth:
+  secret: ''
+  salt: ''

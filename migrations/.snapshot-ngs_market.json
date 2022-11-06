@@ -1,0 +1,537 @@
+{
+  "namespaces": [
+    "public"
+  ],
+  "name": "public",
+  "tables": [
+    {
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "varchar(255)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "string"
+        },
+        "name": {
+          "name": "name",
+          "type": "varchar(255)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "string"
+        }
+      },
+      "name": "drop_aries",
+      "schema": "public",
+      "indexes": [
+        {
+          "keyName": "drop_aries_pkey",
+          "columnNames": [
+            "id"
+          ],
+          "composite": false,
+          "primary": true,
+          "unique": true
+        }
+      ],
+      "checks": [],
+      "foreignKeys": {}
+    },
+    {
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "varchar(255)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "string"
+        },
+        "name": {
+          "name": "name",
+          "type": "varchar(255)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "string"
+        },
+        "rarity": {
+          "name": "rarity",
+          "type": "int",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "integer"
+        },
+        "type": {
+          "name": "type",
+          "type": "varchar(255)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "string"
+        }
+      },
+      "name": "items",
+      "schema": "public",
+      "indexes": [
+        {
+          "columnNames": [
+            "name"
+          ],
+          "composite": false,
+          "keyName": "items_name_unique",
+          "primary": false,
+          "unique": true
+        },
+        {
+          "keyName": "items_pkey",
+          "columnNames": [
+            "id"
+          ],
+          "composite": false,
+          "primary": true,
+          "unique": true
+        }
+      ],
+      "checks": [],
+      "foreignKeys": {}
+    },
+    {
+      "columns": {
+        "items_id": {
+          "name": "items_id",
+          "type": "varchar(255)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "string"
+        },
+        "drop_aries_id": {
+          "name": "drop_aries_id",
+          "type": "varchar(255)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "string"
+        }
+      },
+      "name": "items_droparies",
+      "schema": "public",
+      "indexes": [
+        {
+          "keyName": "items_droparies_pkey",
+          "columnNames": [
+            "items_id",
+            "drop_aries_id"
+          ],
+          "composite": true,
+          "primary": true,
+          "unique": true
+        }
+      ],
+      "checks": [],
+      "foreignKeys": {
+        "items_droparies_items_id_foreign": {
+          "constraintName": "items_droparies_items_id_foreign",
+          "columnNames": [
+            "items_id"
+          ],
+          "localTableName": "public.items_droparies",
+          "referencedColumnNames": [
+            "id"
+          ],
+          "referencedTableName": "public.items",
+          "deleteRule": "cascade",
+          "updateRule": "cascade"
+        },
+        "items_droparies_drop_aries_id_foreign": {
+          "constraintName": "items_droparies_drop_aries_id_foreign",
+          "columnNames": [
+            "drop_aries_id"
+          ],
+          "localTableName": "public.items_droparies",
+          "referencedColumnNames": [
+            "id"
+          ],
+          "referencedTableName": "public.drop_aries",
+          "deleteRule": "cascade",
+          "updateRule": "cascade"
+        }
+      }
+    },
+    {
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "varchar(255)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "string"
+        },
+        "name": {
+          "name": "name",
+          "type": "varchar(255)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "string"
+        }
+      },
+      "name": "item_tags",
+      "schema": "public",
+      "indexes": [
+        {
+          "keyName": "item_tags_pkey",
+          "columnNames": [
+            "id"
+          ],
+          "composite": false,
+          "primary": true,
+          "unique": true
+        }
+      ],
+      "checks": [],
+      "foreignKeys": {}
+    },
+    {
+      "columns": {
+        "items_id": {
+          "name": "items_id",
+          "type": "varchar(255)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "string"
+        },
+        "item_tags_id": {
+          "name": "item_tags_id",
+          "type": "varchar(255)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "string"
+        }
+      },
+      "name": "items_tags",
+      "schema": "public",
+      "indexes": [
+        {
+          "keyName": "items_tags_pkey",
+          "columnNames": [
+            "items_id",
+            "item_tags_id"
+          ],
+          "composite": true,
+          "primary": true,
+          "unique": true
+        }
+      ],
+      "checks": [],
+      "foreignKeys": {
+        "items_tags_items_id_foreign": {
+          "constraintName": "items_tags_items_id_foreign",
+          "columnNames": [
+            "items_id"
+          ],
+          "localTableName": "public.items_tags",
+          "referencedColumnNames": [
+            "id"
+          ],
+          "referencedTableName": "public.items",
+          "deleteRule": "cascade",
+          "updateRule": "cascade"
+        },
+        "items_tags_item_tags_id_foreign": {
+          "constraintName": "items_tags_item_tags_id_foreign",
+          "columnNames": [
+            "item_tags_id"
+          ],
+          "localTableName": "public.items_tags",
+          "referencedColumnNames": [
+            "id"
+          ],
+          "referencedTableName": "public.item_tags",
+          "deleteRule": "cascade",
+          "updateRule": "cascade"
+        }
+      }
+    },
+    {
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "varchar(255)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "string"
+        },
+        "name": {
+          "name": "name",
+          "type": "varchar(255)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "string"
+        },
+        "percent": {
+          "name": "percent",
+          "type": "boolean",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "boolean"
+        },
+        "effect": {
+          "name": "effect",
+          "type": "varchar(255)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "string"
+        }
+      },
+      "name": "opeffects",
+      "schema": "public",
+      "indexes": [
+        {
+          "columnNames": [
+            "name"
+          ],
+          "composite": false,
+          "keyName": "opeffects_name_unique",
+          "primary": false,
+          "unique": true
+        },
+        {
+          "keyName": "opeffects_pkey",
+          "columnNames": [
+            "id"
+          ],
+          "composite": false,
+          "primary": true,
+          "unique": true
+        }
+      ],
+      "checks": [],
+      "foreignKeys": {}
+    },
+    {
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "varchar(255)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "string"
+        },
+        "name": {
+          "name": "name",
+          "type": "varchar(255)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "string"
+        },
+        "item_id": {
+          "name": "item_id",
+          "type": "varchar(255)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "string"
+        }
+      },
+      "name": "ops",
+      "schema": "public",
+      "indexes": [
+        {
+          "columnNames": [
+            "name"
+          ],
+          "composite": false,
+          "keyName": "ops_name_unique",
+          "primary": false,
+          "unique": true
+        },
+        {
+          "keyName": "ops_pkey",
+          "columnNames": [
+            "id"
+          ],
+          "composite": false,
+          "primary": true,
+          "unique": true
+        }
+      ],
+      "checks": [],
+      "foreignKeys": {
+        "ops_item_id_foreign": {
+          "constraintName": "ops_item_id_foreign",
+          "columnNames": [
+            "item_id"
+          ],
+          "localTableName": "public.ops",
+          "referencedColumnNames": [
+            "id"
+          ],
+          "referencedTableName": "public.items",
+          "updateRule": "cascade"
+        }
+      }
+    },
+    {
+      "columns": {
+        "ops_id": {
+          "name": "ops_id",
+          "type": "varchar(255)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "string"
+        },
+        "opeffects_id": {
+          "name": "opeffects_id",
+          "type": "varchar(255)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "string"
+        }
+      },
+      "name": "ops_effects",
+      "schema": "public",
+      "indexes": [
+        {
+          "keyName": "ops_effects_pkey",
+          "columnNames": [
+            "ops_id",
+            "opeffects_id"
+          ],
+          "composite": true,
+          "primary": true,
+          "unique": true
+        }
+      ],
+      "checks": [],
+      "foreignKeys": {
+        "ops_effects_ops_id_foreign": {
+          "constraintName": "ops_effects_ops_id_foreign",
+          "columnNames": [
+            "ops_id"
+          ],
+          "localTableName": "public.ops_effects",
+          "referencedColumnNames": [
+            "id"
+          ],
+          "referencedTableName": "public.ops",
+          "deleteRule": "cascade",
+          "updateRule": "cascade"
+        },
+        "ops_effects_opeffects_id_foreign": {
+          "constraintName": "ops_effects_opeffects_id_foreign",
+          "columnNames": [
+            "opeffects_id"
+          ],
+          "localTableName": "public.ops_effects",
+          "referencedColumnNames": [
+            "id"
+          ],
+          "referencedTableName": "public.opeffects",
+          "deleteRule": "cascade",
+          "updateRule": "cascade"
+        }
+      }
+    },
+    {
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "varchar(255)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "string"
+        },
+        "username": {
+          "name": "username",
+          "type": "varchar(255)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "string"
+        },
+        "password": {
+          "name": "password",
+          "type": "varchar(255)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "string"
+        },
+        "avatar_url": {
+          "name": "avatar_url",
+          "type": "varchar(255)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": true,
+          "mappedType": "string"
+        }
+      },
+      "name": "users",
+      "schema": "public",
+      "indexes": [
+        {
+          "columnNames": [
+            "username"
+          ],
+          "composite": false,
+          "keyName": "users_username_unique",
+          "primary": false,
+          "unique": true
+        },
+        {
+          "keyName": "users_pkey",
+          "columnNames": [
+            "id"
+          ],
+          "composite": false,
+          "primary": true,
+          "unique": true
+        }
+      ],
+      "checks": [],
+      "foreignKeys": {}
+    }
+  ]
+}

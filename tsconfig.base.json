@@ -3,7 +3,7 @@
   "compilerOptions": {
     "rootDir": ".",
     "sourceMap": true,
-    "declaration": false,
+    "declaration": true,
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
@@ -15,7 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@ngs-market/config": ["libs/config/src/index.ts"]
+      "@ngs-market/config": ["libs/config/src/index.ts"],
+      "@ngs-market/db": ["libs/db/src/index.ts"],
+      "@ngs-market/log": ["libs/log/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

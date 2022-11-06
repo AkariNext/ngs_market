@@ -2,12 +2,19 @@ import { readFileSync } from 'fs';
 import * as yaml from 'js-yaml';
 
 interface IConfig {
+  main: {
+    'log-level': string
+  }
   db: {
     user: string
     pass: string
     host: string
     port: number
     db: string
+  }
+  auth: {
+    secret: string,
+    salt: string
   }
 }
 
