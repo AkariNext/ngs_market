@@ -10,6 +10,7 @@ import secureSession from '@fastify/secure-session';
 import { AppModule } from './app/app.module';
 import { config } from '@ngs-market/config';
 import { RemovePasswordInterceptor } from './app/remove-pass';
+import helmet from '@fastify/helmet'
 
 async function bootstrap() {
   const app = await NestFactory.create<NestFastifyApplication>(AppModule, new FastifyAdapter());
@@ -18,6 +19,7 @@ async function bootstrap() {
     secret: config.auth.secret,
     salt: config.auth.salt
   })
+  app.register(helmet);
   app.useGlobalInterceptors(new RemovePasswordInterceptor())
   app.useGlobalPipes(new ValidationPipe())
   await app.listen(port);
