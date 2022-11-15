@@ -1,4 +1,4 @@
-import { Get } from '@nestjs/common';
+import { Get, Query } from '@nestjs/common';
 import { Controller } from '@nestjs/common';
 import { ItemsService } from './items.service';
 
@@ -9,7 +9,7 @@ export class ItemsController {
     ) {}
 
     @Get('/')
-    async getItems() {
-        return await this.itemsService.getItems()
+    async getItems(@Query('type') type: string) {
+        return await this.itemsService.getItems(type)
     }
 }

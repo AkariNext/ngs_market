@@ -1,16 +1,22 @@
 import { AppProps } from 'next/app';
 import Head from 'next/head';
-import './styles.css';
+import '../public/assets/css/reset.css';
+import { MantineProvider } from '@mantine/core';
+import { AnimatePresence } from "framer-motion";
+import {DefaultSeo} from "next-seo";
 
 function CustomApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>Welcome to client!</title>
+        <DefaultSeo defaultTitle='NGS MARKET' canonical='http://ngs.akarinext.org' description='Phantasy Star Online2 New Genesisの相場管理サイトです' />
       </Head>
-      <main className="app">
-        <Component {...pageProps} />
-      </main>
+
+      <AnimatePresence exitBeforeEnter>
+        <MantineProvider withGlobalStyles withNormalizeCSS theme={{ colorScheme: 'light' }}>
+          <Component {...pageProps} />
+        </MantineProvider>
+      </AnimatePresence>
     </>
   );
 }
